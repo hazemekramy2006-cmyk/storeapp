@@ -108,7 +108,7 @@ class ProductSearchDelegate extends SearchDelegate<ProductModel?> {
       separatorBuilder: (context, index) => const SizedBox(height: 16),
       itemBuilder: (context, index) {
         final product = results[index];
-        return ProductCard(product: product);
+        return ProductCard(product: product, onAddToCart: () {});
       },
     );
   }

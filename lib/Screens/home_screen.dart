@@ -14,6 +14,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final List<String> categories = const ['All', 'Skin Care', 'Makeup', 'Perfumes'];
   String selectedCategory = 'All';
+  int cartCount = 0;
+
+  void addToCart() {
+    setState(() {
+      cartCount++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final horizontalPadding = width > 600 ? 28.0 : 20.0;
 
     return Scaffold(
-      bottomNavigationBar: const BottomNavbar(),
+      bottomNavigationBar: BottomNavbar(cartCount: cartCount),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 20),
@@ -40,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
               const SizedBox(height: 30),
-              FeaturedProducts(selectedCategory: selectedCategory),
+              FeaturedProducts(selectedCategory: selectedCategory, onAddToCart: addToCart),
             ],
           ),
         ),

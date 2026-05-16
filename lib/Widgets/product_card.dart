@@ -4,8 +4,9 @@ import '../constants/app_colors.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
+  final VoidCallback onAddToCart;
 
-  const ProductCard({super.key, required this.product});
+  const ProductCard({super.key, required this.product, required this.onAddToCart});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,22 @@ class ProductCard extends StatelessWidget {
           Text(
             product.price,
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.accent),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: onAddToCart,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.accent,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              ),
+              child: const Text(
+                'Add to Cart',
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 14),
+              ),
+            ),
           ),
         ],
       ),

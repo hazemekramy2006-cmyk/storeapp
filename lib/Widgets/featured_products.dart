@@ -5,8 +5,9 @@ import 'product_card.dart';
 
 class FeaturedProducts extends StatelessWidget {
   final String selectedCategory;
+  final VoidCallback onAddToCart;
 
-  const FeaturedProducts({super.key, required this.selectedCategory});
+  const FeaturedProducts({super.key, required this.selectedCategory, required this.onAddToCart});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class FeaturedProducts extends StatelessWidget {
                   childAspectRatio: childAspectRatio,
                 ),
                 itemBuilder: (context, index) {
-                  return ProductCard(product: products[index]);
+                  return ProductCard(product: products[index], onAddToCart: onAddToCart);
                 },
               ),
           ],
