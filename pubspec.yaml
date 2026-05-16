@@ -1,0 +1,30 @@
+name: store_app
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - lib/assets/6b531c9ec6cf94b3a1cad8aa85d915db.jpg
+    - lib/assets/9b8271b4fc33f0a1640163f08798ed8b.jpg
+    - lib/assets/ff310c85177d55ccfd74e4a0c10e29f1.jpg
